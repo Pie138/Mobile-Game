@@ -6,6 +6,7 @@ TagManager:
   tags:
   - isGrounded
   - Ground
+  - COL
   layers:
   - Default
   - TransparentFX
