@@ -12,8 +12,8 @@ public class PlayerControls : MonoBehaviour
     public Rigidbody rb;
 
     public float jump;
-    private bool isJumping;
-    private bool Jump;
+    public bool isJumping;
+    public bool Jump;
     private Animator animator;
     public float LandSpeed = -5;
 
@@ -28,7 +28,7 @@ public class PlayerControls : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
-        checkGround = GetComponentInChildren<CheckGround>(); 
+        checkGround = GetComponentInChildren<CheckGround>();
     }
 
     // Update is called once per frame
@@ -37,26 +37,31 @@ public class PlayerControls : MonoBehaviour
 
         rb.velocity = new Vector3(10, rb.velocity.y);
 
-        if (Input.GetKeyDown("mouse 0") && !isJumping && checkGround.isGrounded)
+
+        if (checkGround.isGrounded == false)
+        {
+            animator.SetBool("is_in_air", true);
+            animator.SetBool("GoingUp", rb.velocity.y > LandSpeed);
+        }
+        else
+        {
+            animator.SetBool("is_in_air", false);
+            animator.SetBool("GoingUp", false);
+        }
+
+    }
+
+    public void OnJump()
+    {
+        if (!isJumping && checkGround.isGrounded)
         {
             rb.AddForce(0, jump * Time.deltaTime, 0, ForceMode.VelocityChange);
             GetComponent<Rigidbody>().AddForce(Vector3.up * 200);
         }
+    }
 
-        if (Input.GetKeyDown("mouse 0"))
-        {
-            animator.SetBool("is_in_air", true);
-            animator.SetBool("GoingUp", true);
-        }
+    public void Slide()
+    {
 
-        else
-        {
-            animator.SetBool("is_in_air", false);
-        }
-
-        if (rb.velocity.y < LandSpeed)
-        {
-            animator.SetBool("GoingUp", false); 
-        }
     }
 }

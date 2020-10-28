@@ -602,7 +602,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 816920585}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1601639511}
+        m_MethodName: Slide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &816920585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1157,7 +1168,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1505566541}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1601639511}
+        m_MethodName: OnJump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1505566541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1214,6 +1236,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1601639513}
   jump: 200
+  isJumping: 0
+  Jump: 0
   LandSpeed: -7
   LevelParts: []
 --- !u!65 &1601639512
