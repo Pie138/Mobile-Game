@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - COL
   - Character
+  - playercollide
+  - PlayerCollide
   layers:
   - Default
   - TransparentFX
